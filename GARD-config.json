@@ -1,0 +1,49 @@
+{
+    "_description": "Baseline cifar10 image classification attacked with FGSM",
+    "adhoc": null,
+    "attack": {
+        "knowledge": "white",
+        "kwargs": {
+            "batch_size": 64,
+            "eps": 0.2
+        },
+        "module": "art.attacks.evasion",
+        "name": "FastGradientMethod"
+    },
+    "dataset": {
+        "batch_size": 64,
+        "module": "armory.data.datasets",
+        "name": "cifar10"
+    },
+    "defense": null,
+    "metric": {
+        "means": true,
+        "perturbation": "linf",
+        "record_metric_per_sample": false,
+        "task": [
+            "categorical_accuracy"
+        ]
+    },
+    "model": {
+        "fit": false,
+        "fit_kwargs": {
+            "nb_epochs": 3
+        },
+        "model_kwargs": {},
+        "module": "GARD_cifar10_finite_model",
+        "name": "get_art_model",
+        "weights_file": "./best_ckpt_ens_200.pkl",
+        "wrapper_kwargs": {}
+    },
+    "scenario": {
+        "kwargs": {},
+        "module": "armory.scenarios.image_classification",
+        "name": "ImageClassificationTask"
+    },
+    "sysconfig": {
+        "docker_image": "twosixarmory/jax:0.2.26",
+        "external_github_repo": null,
+        "gpus": "all",
+        "use_gpu": true
+    }
+}
