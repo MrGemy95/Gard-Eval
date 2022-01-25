@@ -42,7 +42,7 @@
     },
     "sysconfig": {
         "docker_image": "twosixarmory/jax:0.2.26",
-        "external_github_repo": null,
+        "external_github_repo": "MrGemy95/GardEval",
         "gpus": "all",
         "use_gpu": true
     }
